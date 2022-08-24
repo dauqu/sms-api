@@ -4,11 +4,11 @@ const app = express();
 //Allow cors
 const cors = require("cors");
 //Loop of allowed origins
-const allowedOrigins = ["http://localhost:3001", "http://localhost:3000"];
+const allowedOrigins = ["https://sms-react2.vercel.app", "http://localhost:3000"];
 
 app.use(
   cors({
-    origin: "*",
+    origin: allowedOrigins,
     credentials: true,
   })
 );
@@ -23,7 +23,7 @@ const connectDB = require("./config/database");
 connectDB();
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("SMS API");
 });
 
 app.use("/api/v1/sms", require("./routes/sms"));

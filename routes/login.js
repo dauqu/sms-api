@@ -42,6 +42,8 @@ router.post("/", checkUser, async (req, res) => {
     res.cookie("auth_token", token, {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 30,
+      sameSite: "None",
+      secure: true,
     }); //30 days
 
     res
@@ -54,7 +56,7 @@ router.post("/", checkUser, async (req, res) => {
 
 //Check User is login or not
 router.get("/isLoggedIn", async (req, res) => {
-  const token = req.body.token;
+  const token = req.cookies.auth_token;
 
   if (token == undefined || token == null || token == "") {
     return res.json(false);
