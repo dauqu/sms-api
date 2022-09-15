@@ -14,7 +14,6 @@ router.get("/", async (req, res) => {
 
 //Create One
 router.post("/", async (req, res) => {
-    console.log(req.body);
   const room = new RoomSchema({
     code: req.body.code,
     description: req.body.description,
