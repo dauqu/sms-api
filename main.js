@@ -31,6 +31,7 @@ app.use("/api/v1/card", require("./routes/card"));
 app.use("/api/v1/login", require("./routes/login"));
 app.use("/api/v1/register", require("./routes/register"));
 app.use("/api/v1/users", require("./routes/users"));
+app.use("/api/v1/room", require("./routes/code"));
 
 app.listen(4000, () => {
   console.log("Example app listening on port http://localhost:4000");
