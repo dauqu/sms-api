@@ -41,8 +41,8 @@ router.delete("/:id", async (req, res) => {
 });
 
 //Find One
-router.get("/:code", async (req, res) => {
-  const room = await RoomSchema.findById({
+router.get("/code/:code", async (req, res) => {
+  const room = await RoomSchema.findOne({
     code: req.params.code,
   });
   if (!room) return res.status(404).json({ message: "Room not found" });
